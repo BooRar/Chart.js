@@ -1,0 +1,14 @@
+{
+  "name": "jetcanvajsextender",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./js/\u0016jetcanvasjsextender.js\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[3~\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001bJS\u001b[3~\u001b[E\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jonathan James",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^2.8.0"
+  }
+}

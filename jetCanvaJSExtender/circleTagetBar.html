@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .can{
+        height: 300px;
+        width: 300px;
+        /* //    text-align: center; */
+        display: -webkit-inline-box;
+        margin: 10px;
+    }
+
+    body{
+        background-color: rgb(29, 31, 33);
+    }
+    </style>
+
+</head>
+<body>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.1/Chart.bundle.min.js"></script> -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js">    </script>
+    
+    <script type="text/javascript" src="./js/jetCanvaJSExtender.js">   </script>
+    <div class="can" id ="can">
+
+
+        <canvas id="openedCanvas" height="130" width="130"></canvas>
+    </div>
+    <div class="can" id ="can">
+        <canvas id="openedCanvas1" height="230" width="230"></canvas>
+    </div>
+    <div class="can" id ="can">
+        <canvas id="openedCanvas2" height="230" width="230"></canvas>
+    </div>
+    <script type="text/javascript">
+
+
+
+
+
+
+
+
+
+    var cnv = document.getElementById('openedCanvas');
+    var ctx = document.getElementById('openedCanvas').getContext("2d");
+    var gradientStroke = ctx.createLinearGradient(0, 0, cnv.width*2,cnv.height/2);
+    gradientStroke.addColorStop(0, "rgb(36, 193, 237)");
+    gradientStroke.addColorStop(1, "rgb(149, 76, 233)");
+
+    var revGradientStroke = ctx.createLinearGradient(0, 0, cnv.width,cnv.height/2);
+    revGradientStroke.addColorStop(0, "rgb(36, 193, 237)");
+    revGradientStroke.addColorStop(1, "rgb(149, 76, 233)");
+
+    var gradientStroke2 = ctx.createLinearGradient(0, 0, cnv.width*2,cnv.height/2);
+    gradientStroke2.addColorStop(0, "rgb(16, 173, 217)");
+    gradientStroke2.addColorStop(1, "rgb(119, 46, 213)");
+
+    var gradientStroke3 = ctx.createLinearGradient(0, 0, cnv.width*2,cnv.height/2);
+    gradientStroke3.addColorStop(0, "rgb(56, 233, 277)");
+    gradientStroke3.addColorStop(1, "rgb(169, 146, 253)");
+
+
+
+    var deliveredData = {
+        labels: [
+            "Value"
+        ],
+        datasets: [
+            {
+                data: [50,0],
+                backgroundColor: [
+                    gradientStroke,
+                    "rgba(22, 23, 25,1)"
+                ],
+                hoverBackgroundColor: [
+                    revGradientStroke,
+                    "rgba(22, 23, 25,1)"
+                ],
+                borderWidth: [
+                    0, 0
+                ],
+                borderColor:gradientStroke
+            },{
+                data: [0,0],
+                backgroundColor: [
+                    gradientStroke2,
+                    "rgba(22, 23, 25,1)"
+                ],
+                hoverBackgroundColor: [
+                    revGradientStroke,
+                    "rgba(22, 23, 25,1)"
+                ],
+                borderWidth: [
+                    0, 0
+                ],
+                borderColor:gradientStroke
+            }
+            ,{
+                data: [0,0],
+                backgroundColor: [
+                    gradientStroke3,
+                    "rgba(22, 23, 25,1)"
+                ],
+                hoverBackgroundColor: [
+                    revGradientStroke,
+                    "rgba(22, 23, 25,1)"
+                ],
+                borderWidth: [
+                    0, 0
+                ],
+                borderColor:gradientStroke
+            }
+            ,{
+                data: [0,0],
+                backgroundColor: [
+                    "blue",
+                    "rgba(22, 23, 25,1)"
+                ],
+                hoverBackgroundColor: [
+                    revGradientStroke,
+                    "rgba(22, 23, 25,1)"
+                ],
+                borderWidth: [
+                    0, 0
+                ],
+                borderColor:gradientStroke
+            }
+        ]
+    };
+
+
+    var progress;
+
+
+
+    var deliveredOpt = {
+        cutoutPercentage: 68,
+        goalAmmount: 100,
+        salesAmmount: 290,
+        animation: {
+            animationRotate: true,
+            animateScale: false,
+            duration: 4000,
+            onProgress:function(animation) {      jetCanvaJSExtender.updateText(this,(animation.animationObject.currentStep / animation.animationObject.numSteps));       }
+
+        },
+        events: [
+            {
+                hover: {mode: null}
+            }
+        ],
+        legend: {
+            display: false
+        },
+        tooltips: {
+            enabled: false
+        },
+        elements: {
+            center: {
+                text: '',
+                color: '#FFFFFF', // Default is #000000
+                fontStyle: 'sans-serif', // Default is Arial
+                sidePadding: 30 ,// Defualt is 20 (as a percentage)
+
+
+            }
+        }
+    };
+
+
+
+
+
+
+
+
+    var jetCanvaJSExtender = new jetCanvaJSExtender();
+
+
+    var newElm = document.getElementById('openedCanvas');
+    var chart = new Chart(newElm, {
+        type: 'doughnut',
+        data: deliveredData,
+        options: deliveredOpt,
+        percentile : 33
+    });
+    var newElm = document.getElementById('openedCanvas1');
+    var chart1 = new Chart(newElm, {
+        type: 'doughnut',
+        data: deliveredData,
+        options: deliveredOpt,
+        percentile : 33
+    });
+    var newElm = document.getElementById('openedCanvas2');
+    var chart2 = new Chart(newElm, {
+        type: 'doughnut',
+        data: deliveredData,
+        options: deliveredOpt,
+        percentile : 33
+    });
+
+
+
+
+
+    //    }
+
+    </script>
+</body>
+</html>
